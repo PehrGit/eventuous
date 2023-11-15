@@ -39,7 +39,7 @@ public abstract class SqlServerSubscriptionBase<T>(
 
         var (_, position) = await GetCheckpoint(cancellationToken).NoContext();
 
-        _runner = Task.Run(() => PollingQuery(position + 1, _cts.Token), _cts.Token);
+        _runner = Task.Run(() => PollingQuery(position + 1, _cts.Token), _cts.Token); // change this
     }
 
     protected override async ValueTask Unsubscribe(CancellationToken cancellationToken) {
